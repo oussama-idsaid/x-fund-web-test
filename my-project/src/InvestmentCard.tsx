@@ -1,10 +1,8 @@
-import React from 'react';
 
 export const InvestmentCard = ({
-  // Image & Status
+  // Image 
   imageUrl = "https://cdn.home-designing.com/wp-content/uploads/2023/04/modern-houses.jpg",
   imageAlt = "Investment Property",
-  status = "En collecte",
   statusColor = "green",
   
   // Property Details
@@ -42,7 +40,7 @@ export const InvestmentCard = ({
   ]
 }) => {
   // Format currency amounts
-  const formatAmount = (amount) => {
+  const formatAmount = (amount: number) => {
     return new Intl.NumberFormat('fr-FR').format(amount);
   };
 
@@ -64,9 +62,9 @@ export const InvestmentCard = ({
       bg: 'bg-blue-500',
       shadow: 'shadow-[0_0_8px_rgba(59,130,246,0.6)]'
     }
-  };
+  } as const;
 
-  const currentStatusColor = statusColors[statusColor] || statusColors.green;
+  const currentStatusColor = statusColors[statusColor as keyof typeof statusColors] || statusColors.green;
 
   return (
     <div 
@@ -86,7 +84,7 @@ export const InvestmentCard = ({
             className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
             alt={imageAlt} 
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#111111] via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-linear-to-t from-[#111111] via-transparent to-transparent opacity-60" />
           
           {/* Status Badge */}
           <div className="absolute top-[6%] left-[6%] bg-black/40 backdrop-blur-md px-[3%] py-[1.5%] rounded-full border border-white/20 flex items-center gap-[0.5em]">
@@ -154,7 +152,7 @@ export const InvestmentCard = ({
           className="relative w-full py-[3.5%] mb-[6%] rounded-lg overflow-hidden group/btn transition-all duration-300 hover:-translate-y-0.5 shadow-[0_15px_30px_-10px_rgba(212,175,55,0.25)] shrink-0 active:scale-[0.98]"
         >
           <div className="absolute inset-0 bg-[linear-gradient(135deg,#D4AF37_0%,#AA8C2C_100%)]"></div>
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent)] -translate-x-[100%] group-hover/btn:translate-x-[100%] transition-transform duration-500 ease-in-out"></div>
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent)] -translate-x-full group-hover/btn:translate-x-full transition-transform duration-500 ease-in-out"></div>
           <span className="relative z-10 text-white font-bold text-[clamp(0.75rem,3.5cqw,1rem)] uppercase tracking-wide">
             {investButtonText}
           </span>

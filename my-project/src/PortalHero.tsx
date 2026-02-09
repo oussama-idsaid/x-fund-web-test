@@ -19,6 +19,8 @@ export const PortalHero = () => {
   const investmentCardContainerRef = useRef<HTMLDivElement | null>(null);
   const notificationCardContainerRef = useRef<HTMLDivElement | null>(null);
   const balanceContainerRef = useRef<HTMLDivElement | null>(null);
+  const balanceTitleRef = useRef<HTMLDivElement | null>(null);
+  const balanceDescRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(() => {
     if (
@@ -31,7 +33,9 @@ export const PortalHero = () => {
       !sideCard2Ref.current ||
       !investmentCardContainerRef.current ||
       !notificationCardContainerRef.current ||
-      !balanceContainerRef.current
+      !balanceContainerRef.current ||
+      !balanceTitleRef.current ||
+      !balanceDescRef.current
     ) {
       return;
     }
@@ -52,7 +56,7 @@ export const PortalHero = () => {
       start: "top top",
       end: "+=1200", // How long do you want it pinned?
       pin: true,
-      // markers: true,
+      markers: false,
       pinSpacing: true // Ensures the next section stays pushed down
     });
 
@@ -78,9 +82,9 @@ export const PortalHero = () => {
       width: '100vw',
       height: '100vh',
       borderRadius: 0,
-      duration: .7,
-      ease: "power4.inOut"
-    });
+      duration: .8,
+      ease: "expo.in"
+    }, "-=0.2");
 
     // Fill white box bg
     tl.to(boxRef.current, {
@@ -108,9 +112,11 @@ export const PortalHero = () => {
     }, "-=0.7");
 
     // Hide balance
-    tl.to(balanceContainerRef.current, {
-      opacity: 0,
-      duration: .3
+    tl.fromTo(balanceContainerRef.current, {
+        opacity: 1
+    }, {
+        opacity: 0,
+        duration: .3
     }, "-=1");
 
     // card animation
@@ -171,6 +177,7 @@ export const PortalHero = () => {
     {
       id: 2,
       title: "Villa Azure",
+      imageUrl: "https://www.proprietesdecharme.com/wp-content/uploads/2023/03/Vente-immobilier-de-luxe-France.jpg",
       location: "Cannes, France",
       currentAmount: 680000,
       targetAmount: 900000,
@@ -182,6 +189,7 @@ export const PortalHero = () => {
     {
       id: 3,
       title: "Château Moderne",
+      imageUrl: "https://www.davidsmalldesigns.com/wp-content/uploads/2021/08/modern-chateau-01.jpg",
       location: "Versailles, France",
       currentAmount: 1250000,
       targetAmount: 2000000,
@@ -200,7 +208,7 @@ export const PortalHero = () => {
       <div ref={heroContentRef} className="absolute inset-0 flex flex-col items-start justify-start z-10  px-32 pt-36">
         <h1 className="text-5xl md:text-7xl lg:text-8xl xl:text-[136px] leading-tight xl:leading-[0.9] font-medium mb-4">L'immobilier débloqué</h1>
         <p className='text-lg md:text-xl lg:text-2xl max-w-md md:max-w-2xl lg:max-w-3xl mb-6'>Accédez à l'immobilier de prestige dès 10€. Bâtissez votre patrimoine mondial en quelques clics seulement.</p>
-        <button className="px-8 py-3 bg-gray-900 rounded-full text-lg font-semibold">
+        <button className="px-8 py-3 bg-[#D4AF37] rounded-md text-lg text-black font-semibold">
           Devenir investisseur
         </button>
       </div>
@@ -217,9 +225,9 @@ export const PortalHero = () => {
 
 
             <div ref={cardRef} className="w-full h-full min-h-0 flex flex-col items-center justify-end p-2">
-                <div ref={balanceContainerRef} className='mb-24 text-center'>
-                    <p className='text-xl '>Total</p>
-                    <p className='text-4xl font-bold '>€7,256</p>
+                <div ref={balanceContainerRef} className='mb-24 text-center '>
+                    <p ref={balanceTitleRef} className='text-xl'>Total</p>
+                    <p ref={balanceDescRef} className='text-4xl font-bold'>€7,256</p>
                 </div>
                 <div ref={investmentCardContainerRef} className='w-full flex-1 p-2 scale-95 absolute opacity-0'>
                     <InvestmentCard />

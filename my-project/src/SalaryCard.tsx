@@ -30,7 +30,7 @@ const SalaryCard: React.FC<SalaryCardProps> = ({
       `}
     >
       {/* Optional: Subtle gradient overlay for the "Onyx" feel */}
-      <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+      <div className="absolute inset-0 rounded-2xl bg-linear-to-br from-white/5 to-transparent pointer-events-none" />
 
       <div className="flex items-center gap-4 z-10">
         {/* Icon Container - Styled like the 'Performance' icon in Image 2 */}
@@ -63,7 +63,7 @@ const SalaryCard: React.FC<SalaryCardProps> = ({
         <span 
           className="
             text-xl font-bold 
-            bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 
+            bg-linear-to-br from-amber-200 via-amber-400 to-amber-600 
             bg-clip-text text-transparent
             drop-shadow-sm
           "
@@ -76,15 +76,3 @@ const SalaryCard: React.FC<SalaryCardProps> = ({
 };
 
 export default SalaryCard;
-
-// ------------------------------------------------------------------
-// Example Usage Wrapper (to visualize the glass effect)
-// ------------------------------------------------------------------
-
-// export const ExampleUsage = () => {
-//   return (
-//     <div className="min-h-[300px] w-full bg-neutral-950 flex items-center justify-center p-8 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-neutral-800 via-neutral-950 to-black">
-//       <SalaryCard />
-//     </div>
-//   );
-// };

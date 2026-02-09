@@ -1,9 +1,9 @@
-import React from 'react';
-import Video from "./assets/Video.mp4"
+
+import Video from "./assets/video-final.mp4"
 
 const ElevateSpendSection = () => {
   return (
-    <section className="relative w-full h-screen overflow-hidden bg-black text-white font-sans flex flex-col items-center justify-center">
+    <section className="relative w-full h-screen overflow-hidden bg-black text-white font-sans flex flex-col items-center justify-center mt-20 ">
       
       {/* --- Background Video (Contains Background + Cards) --- */}
       <div className="absolute inset-0 z-0">
@@ -25,23 +25,23 @@ const ElevateSpendSection = () => {
       </div>
 
       {/* --- Overlay Content --- */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col items-center h-full pt-20 pb-10 justify-between">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 flex flex-col items-center h-full pt-10 justify-between">
         
         {/* 1. Top Text Group */}
-        <div className="text-center space-y-6 max-w-3xl mt-12">
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight text-white drop-shadow-lg">
-            La crème de l'immobilier
+        <div className="text-center space-y-6 max-w-3xl mt-">
+          <h1 className="text-5xl md:text-5xl font-semibold tracking-tight text-white drop-shadow-lg">
+            L'app X-FUND : Investissez. Suivez. Encaissez.
           </h1>
-          <p className="text-gray-100 text-base md:text-lg max-w-2xl mx-auto leading-relaxed font-normal shadow-black drop-shadow-md">
+          <p className="text-gray-100 text-base md:text-sm max-w-2xl mx-auto leading-relaxed font-normal shadow-black drop-shadow-md">
             Nous sourçons le rare. Accédez à des pépites architecturales normalement réservées aux fonds privés et suivez la croissance de votre capital en temps réel, sans aucune contrainte de gestion.
           </p>
         </div>
 
         {/* 2. Middle "Start Earning" Button (Positioned to sit over the cards in the video) */}
         {/* You may need to adjust 'mb-32' or translate-y depending on exactly where the cards sit in your video frame */}
-        <div className="flex-1 flex items-center justify-center pt-10">
+        <div className="flex-1 flex items-end justify-center py-10 ">
             <button className="bg-white text-black px-8 py-3 rounded-full font-medium text-sm hover:scale-105 transition-transform duration-300 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-                Prendre part
+                Télécharger l'application
             </button>
         </div>
 

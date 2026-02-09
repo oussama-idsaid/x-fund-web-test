@@ -2,8 +2,9 @@
 
 @import "tailwindcss";
 
-@theme {
-  /* Option A: Make Roboto the default for everything (replaces Inter/Helvetica) */
-  --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
-
+@layer base {
+  :root {
+    /* Option A: Make Roboto the default for everything (replaces Inter/Helvetica) */
+    --font-sans: "Roboto", ui-sans-serif, system-ui, sans-serif;
+  }
 }
